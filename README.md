@@ -8,4 +8,9 @@ I then released the software to the public. The source? Sorry, long gone. But it
 
 Put on github for the historical record.
 
+Further implementation details: Turbo C would generate "INT ?" instruction for 8087 instructions. Turbo Pascal 87 use F... instructions. When trapped,
+I would replace the instruction F... with a "INT ?" modified to reflect the needed instruction. I would then rexecute the modified instruction, which
+would vector into the 8087 emulation library. Wasn't much to it, at all. As a PS, the next time the same F... instruction was executed, no trap
+was made -- the code would go directly to the library.
+
 Fred Weigel
